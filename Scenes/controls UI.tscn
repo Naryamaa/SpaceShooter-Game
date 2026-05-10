@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://dko2arcq3s8xa"]
+
+[ext_resource type="Script" uid="uid://r50hunx8gnxo" path="res://Scenes/controls_ui.gd" id="1_rqe07"]
+[ext_resource type="Texture2D" uid="uid://h08igrplt7wx" path="res://Assets/Random Assets/game screenshoot.png" id="2_687t1"]
+[ext_resource type="FontFile" uid="uid://72155c0jtaru" path="res://Assets/Fonts/font.ttf" id="3_rmbxx"]
+[ext_resource type="Texture2D" uid="uid://ll2rssfqhdfa" path="res://Assets/Random Assets/WASD keys-Photoroom.png" id="4_5tp17"]
+[ext_resource type="Texture2D" uid="uid://cu105n87ucapo" path="res://Assets/Random Assets/arrow keys-Photoroom.png" id="5_jcqg8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f65u6"]
+texture = ExtResource("2_687t1")
+modulate_color = Color(0.2568149, 0.23334765, 0.20988837, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pyd06"]
+font = ExtResource("3_rmbxx")
+font_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tb7n"]
+bg_color = Color(0.16844407, 0.114584915, 0.31016457, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35435122, 0.23887315, 0.6981107, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6h5fq"]
+bg_color = Color(0.16844407, 0.114584915, 0.31016457, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35435122, 0.23887315, 0.6981107, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlfeo"]
+bg_color = Color(0.09574089, 0.05850529, 0.19119307, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35435122, 0.23887315, 0.6981107, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_001fl"]
+
+[node name="ControlsUi" type="Control" unique_id=80962655]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rqe07")
+
+[node name="Panel" type="Panel" parent="." unique_id=1698469608]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_f65u6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=107213201]
+
+[node name="Label" type="Label" parent="." unique_id=1247831966]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "
+
+
+
+Use the A and D /
+Left and Right arrow keys
+to move LEFT & RIGHT
+"
+label_settings = SubResource("LabelSettings_pyd06")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WASD" type="Sprite2D" parent="." unique_id=1198940019]
+position = Vector2(98, 50)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_5tp17")
+
+[node name="ARROW" type="Sprite2D" parent="." unique_id=1832701514]
+position = Vector2(96, 129)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("5_jcqg8")
+
+[node name="Button" type="Button" parent="." unique_id=1346832450]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -74.0
+offset_right = 43.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.7185896, 0.8101225, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_rmbxx")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tb7n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6h5fq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xlfeo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_001fl")
+text = "Back"
+autowrap_trim_flags = 192
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

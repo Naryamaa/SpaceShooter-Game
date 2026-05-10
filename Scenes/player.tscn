@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dvjcnak0boh7l"]
+
+[ext_resource type="Script" uid="uid://dimnrhshx51m8" path="res://Scenes/player.gd" id="1_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://ut3kuukmciun" path="res://Assets/Sprites/ship.png" id="1_v0iea"]
+[ext_resource type="AudioStream" uid="uid://qmebwhqowexl" path="res://Assets/Audios/laser.wav" id="3_vgqql"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
+radius = 5.0
+height = 22.0
+
+[node name="Player" type="Area2D" unique_id=931078146]
+collision_mask = 4
+script = ExtResource("1_6t5aa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1018388597]
+texture = ExtResource("1_v0iea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1338400920]
+shape = SubResource("CapsuleShape2D_cvnsp")
+
+[node name="LaserSound" type="AudioStreamPlayer2D" parent="." unique_id=210357282]
+stream = ExtResource("3_vgqql")
+volume_db = -20.91
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="player_died" from="." to="." method="_on_player_died"]

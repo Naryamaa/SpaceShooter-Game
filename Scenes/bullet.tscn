@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://8ujnfoa7lw40"]
+
+[ext_resource type="Script" uid="uid://6h2twiajo8v0" path="res://Scenes/bullet.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://dqlqhagb7hpc1" path="res://Assets/Sprites/projectile.png" id="2_ycag2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6afsh"]
+atlas = ExtResource("2_ycag2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odot3"]
+atlas = ExtResource("2_ycag2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8o6v"]
+atlas = ExtResource("2_ycag2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qttmj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6afsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odot3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8o6v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tkcvl"]
+radius = 2.0
+height = 14.0
+
+[node name="bullet" type="Area2D" unique_id=993065489]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_oduel")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=414907160]
+sprite_frames = SubResource("SpriteFrames_qttmj")
+autoplay = "default"
+frame_progress = 0.70674
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1804629630]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_tkcvl")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
